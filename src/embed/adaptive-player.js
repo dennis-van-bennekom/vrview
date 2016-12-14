@@ -43,6 +43,12 @@ function AdaptivePlayer() {
   // Enable inline video playback in iOS 10+.
   this.video.setAttribute('playsinline', true);
   this.video.setAttribute('crossorigin', 'anonymous');
+
+  this.video.loop = false;
+
+  this.video.onended = function () {
+    window.afterVideo();
+  }
 }
 AdaptivePlayer.prototype = new EventEmitter();
 
